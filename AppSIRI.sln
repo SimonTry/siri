@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSIRI", "AppSIRI\AppSIRI.csproj", "{F08F68AA-16FC-4AFB-A287-3C4207A59F89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F08F68AA-16FC-4AFB-A287-3C4207A59F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F08F68AA-16FC-4AFB-A287-3C4207A59F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F08F68AA-16FC-4AFB-A287-3C4207A59F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F08F68AA-16FC-4AFB-A287-3C4207A59F89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3871DA8C-8B3A-403B-AE4A-BB1829ACFC1B}
+	EndGlobalSection
+EndGlobal
