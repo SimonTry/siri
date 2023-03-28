@@ -1,0 +1,38 @@
+﻿@model AppSIRI.Models.RematePorUsuarioModel
+@{
+    ViewBag.Title = "Pujar remate";
+    ViewBag.cardCategory = "Complete los campos";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title">@ViewBag.Title</h4>
+                    <p class="card-category">@ViewBag.cardCategory</p>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Create", "Pujas", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.valorPuja, new { @class = "bmd-label-floating" })
+                                    @Html.TextBoxFor(m => m.valorPuja, new { @class = "form-control", Type = "number"})
+                                    @Html.ValidationMessageFor(m => m.valorPuja, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" value="@ViewBag.RemateId" name="RemateIdFk">
+                        <input type="hidden" value="@ViewBag.UserId" name="UserIdFk">
+                        <button type="submit" class="btn btn-danger pull-right">Pujar</button>
+                        <div class="clearfix"></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

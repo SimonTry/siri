@@ -1,0 +1,77 @@
+﻿@model AppSIRI.Models.PersonasModel
+@{
+    ViewBag.Title = "Crear persona";
+    ViewBag.cardCategory = "Complete los campos";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-rose">
+                    <h4 class="card-title">@ViewBag.Title</h4>
+                    <p class="card-category">@ViewBag.cardCategory</p>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Create", "Personas", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="form-control" name="User">
+                                        @foreach(var item in ViewBag.usuarios)
+                                        {
+                                            <option value="@item.Id">@item.Email</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.identification, new { @class = "bmd-label-floating" })
+                                    @Html.TextBoxFor(m => m.identification, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.identification, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.firstName, new { @class = "bmd-label-floating" })
+                                    @Html.TextBoxFor(m => m.firstName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.firstName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.secondName, new { @class = "bmd-label-floating" })
+                                    @Html.TextBoxFor(m => m.secondName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.secondName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.firstLastName, new { @class = "bmd-label-floating" })
+                                    @Html.TextBoxFor(m => m.firstLastName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.firstLastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.secondLastName, new { @class = "bmd-label-floating" })
+                                    @Html.TextBoxFor(m => m.secondLastName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.secondLastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-rose pull-right">Guardar persona</button>
+                        <div class="clearfix"></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,70 @@
+﻿@model AppSIRI.Models.RematesModel
+@{
+    ViewBag.Title = "Editar producto";
+    ViewBag.cardCategory = "Complete los campos";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title">@ViewBag.Title</h4>
+                    <p class="card-category">@ViewBag.cardCategory</p>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("EditRemate", "Remates", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.TextBoxFor(m => m.RemateId, new { Type ="hidden"})
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="form-control" name="productoId">
+                                        @*<option selected="selected" value="@ViewBag.productoSeleccionado.productoId">@ViewBag.productoSeleccionado.nombreProducto</option>*@
+                                        @foreach (var item in ViewBag.productos)
+                                        {
+                                            <option value="@item.productoId">@item.nombreProducto</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.fechaInicio, new { @class = "bmd-label-static" })
+                                    @Html.TextBoxFor(m => m.fechaInicio, new { @class = "form-control", Type = "Date" })
+                                    @Html.ValidationMessageFor(m => m.fechaInicio, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.fechaFin, new { @class = "bmd-label-static" })
+                                    @Html.TextBoxFor(m => m.fechaFin, new { @class = "form-control", Type = "Date" })
+                                    @Html.ValidationMessageFor(m => m.fechaFin, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(m => m.precioBase, new { @class = "bmd-label-floating" })
+                                @Html.TextBoxFor(m => m.precioBase, new { @class = "form-control", Type = "number" })
+                                @Html.ValidationMessageFor(m => m.precioBase, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(m => m.descripcionRemate, new { @class = "bmd-label-floating" })
+                                @Html.TextAreaFor(m => m.descripcionRemate, new { @class = "form-control", @rows = 3 })
+                                @Html.ValidationMessageFor(m => m.precioBase, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info pull-right">Modificar remate</button>
+                        <div class="clearfix"></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

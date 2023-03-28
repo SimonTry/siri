@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Pujas realizadas";
+    ViewBag.SubTitle = "Listado";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title ">@ViewBag.Title</h4>
+                        <p class="card-category">@ViewBag.SubTitle</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="text-info">
+                                    <tr>
+                                        <th>Valor de puja</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in ViewBag.puja)
+                                    {
+                                    <tr>
+                                        <td>@item.valorPuja</td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

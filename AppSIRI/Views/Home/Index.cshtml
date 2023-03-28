@@ -1,0 +1,9 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<div class="jumbotron">
+    <h1>Bienvendio a SIRI</h1>
+    <p class="lead">@User.Identity.GetUserName()</p>
+</div>

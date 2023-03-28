@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AppSIRI.Models.PersonasModel>
+@{ 
+    ViewBag.Title = "Personas";
+    ViewBag.SubTitle = "Listado";
+}
+<div class="td-actions text-right">
+    <a class="btn btn-rose" href="@Url.Action("Create", "Personas")">Crear nueva persona</a>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-rose">
+                        <h4 class="card-title ">@ViewBag.Title</h4>
+                        <p class="card-category">@ViewBag.SubTitle</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="text-rose">
+                                    <tr>
+                                        <th>Identificacion</th>
+                                        <th>Nombres</th>
+                                        <th>Apellidos</th>
+                                        <th class="text-right">Operaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.identification</td>
+                                            <td>@item.firstName @item.secondName </td>
+                                            <td>@item.firstLastName @item.secondLastName</td>
+                                            <td class="td-actions text-right">
+                                                <a href="/Personas/EditPersona/@item.Id" class="btn btn-info">
+                                                    <i class="material-icons">edit</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
